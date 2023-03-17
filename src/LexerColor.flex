@@ -46,10 +46,10 @@ N=[0-9]*
 /* IDENTIFICADOR*/
 @{Identificador} { return textColor(yychar, yylength(), new Color(53, 255, 249)); }
 /* TIPOS DE DATO */
-CAD |
-Z |
-D | 
-VOF { return textColor(yychar, yylength(), new Color(255, 198, 6)); }
+str |
+int |
+dec | 
+bool { return textColor(yychar, yylength(), new Color(255, 198, 6)); }
 
 /* NUMERO*/
  0 | [1-9][0-9]* { return textColor(yychar, yylength(), new Color(255, 255, 0)); }
@@ -77,40 +77,52 @@ AZUL { return textColor(yychar, yylength(), new Color(116, 254, 1)); }
 
 
 /*OPERADORES */
-EQU |
-MAS |
-MENOS |
-POR |
-ENTRE |
-Y |
-O |
-DIF |
-MAY |
-MEN |
-MAS1 |
-MEN1 { return textColor(yychar, yylength(), new Color(116, 254, 1)); }
+= |
++ |
+- |
+* |
+/ |
+&& |
+|| |
+! |
+> |
+< |
+>= |
+<= |
+++ |
+-- { return textColor(yychar, yylength(), new Color(116, 254, 1)); }
 
 /*PUNTUACION */
-"!" { return textColor(yychar, yylength(), new Color(190, 66, 0)); }
+";" { return textColor(yychar, yylength(), new Color(190, 66, 0)); }
 
 /*CADENA*/
 '({Letra}|{Digito}|{EspacioEnBlanco})*' {return textColor(yychar, yylength(), new Color(255, 255, 255)); }
 
 /*PALABRAS RESERVADAS*/
 
-Cond |
-Conds |
-Mientras  |
-Ciclar  |
-Hacer  |
-Este |
-Devolver |
-CHANGE 
+if |
+else |
+while  |
+for  |
+do  |
+this |
+return 
+ 
  { return textColor(yychar, yylength(), new Color(255, 198, 6)); }
-"v"  { return textColor(yychar, yylength(), new Color(255, 198, 6)); }
-"f" { return textColor(yychar, yylength(), new Color(255, 198, 6)); }
+verdadero | true  { return textColor(yychar, yylength(), new Color(255, 198, 6)); }
+falso | false { return textColor(yychar, yylength(), new Color(255, 198, 6)); }
 /* FUNCION */
 F_{Letra}({Letra}|{Digito})*  { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+MOVER_ARRIBA{ return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+MOVER_ABAJO { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+MOVER_IZQ { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+MOVER_DER{ return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+ROTAR { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+POSX { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+POSY { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+SALTAR { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+SONIDO { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+CREAROBJETO { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
 
 /*ERRORES*/ 
 
