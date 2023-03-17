@@ -69,27 +69,27 @@ AZULTURQ |
 AZUL { return textColor(yychar, yylength(), new Color(116, 254, 1)); }
 
 /*OPERADORES DE AGRUPACION*/
-"<(" |
+"{" |
 "(" |
 ")" |
 ","|
-")>" { return textColor(yychar, yylength(), new Color(214,88, 245)); }
+"}" { return textColor(yychar, yylength(), new Color(214,88, 245)); }
 
 
 /*OPERADORES */
-= |
-+ |
-- |
-* |
-/ |
-&& |
-|| |
-! |
-> |
-< |
->= |
-<= |
-++ |
+"=" |
+"+" |
+"-" |
+"*" |
+"/"|
+"&&" |
+"||" |
+"!" |
+">" | 
+"<" |
+">=" |
+"<=" |
+"++" |
 -- { return textColor(yychar, yylength(), new Color(116, 254, 1)); }
 
 /*PUNTUACION */
@@ -112,11 +112,11 @@ return
 verdadero | true  { return textColor(yychar, yylength(), new Color(255, 198, 6)); }
 falso | false { return textColor(yychar, yylength(), new Color(255, 198, 6)); }
 /* FUNCION */
-F_{Letra}({Letra}|{Digito})*  { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
-MOVER_ARRIBA{ return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+
+MOVER_ARRIBA { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
 MOVER_ABAJO { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
 MOVER_IZQ { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
-MOVER_DER{ return textColor(yychar, yylength(), new Color(188, 254, 94)); }
+MOVER_DER { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
 ROTAR { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
 POSX { return textColor(yychar, yylength(), new Color(188, 254, 94)); }
 POSY { return textColor(yychar, yylength(), new Color(188, 254, 94)); }

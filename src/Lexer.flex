@@ -85,8 +85,8 @@ AZUL { return token(yytext(), "COLOR", yyline, yycolumn); }
 "&&" { return token(yytext(), "OPERADOR_AND", yyline, yycolumn); }
 "||" { return token(yytext(), "OPERADOR_OR", yyline, yycolumn); }
 "!" { return token(yytext(), "OPERADOR_DIFERENTEQUE", yyline, yycolumn); }
-">" { return token(yytext(), "OPERADOR_MAYORQUE", yyline, yycolumn); }
-"<" { return token(yytext(), "OPERADOR_MENORQUE", yyline, yycolumn); }
+">"  { return token(yytext(), "OPERADOR_MAYORQUE", yyline, yycolumn); }
+"<"  { return token(yytext(), "OPERADOR_MENORQUE", yyline, yycolumn); }
 "++" { return token(yytext(), "OPERADOR_INCREMENTO", yyline, yycolumn); }
 "--" { return token(yytext(), "OPERADOR_DECREMENTO", yyline, yycolumn); }
 ">=" { return token(yytext(), "OPERADOR_MAYORIGUALQUE", yyline, yycolumn); }
@@ -115,12 +115,13 @@ verdadero | true { return token(yytext(), "VERDADERO", yyline, yycolumn); }
 falso  | false { return token(yytext(), "FALSO", yyline, yycolumn); }
 
 /* FUNCION */
-MOVER_ARRIBA{return token(yytext(), "FUNCION_M_ARRIBA", yyline, yycolumn); }
+
+MOVER_ARRIBA {return token(yytext(), "FUNCION_M_ARRIBA", yyline, yycolumn); }
 MOVER_ABAJO {return token(yytext(), "FUNCION_M_ABAJO", yyline, yycolumn); }
 MOVER_IZQ {return token(yytext(), "FUNCION_M_IZQ", yyline, yycolumn); }
-MOVER_DER{return token(yytext(), "FUNCION_M_DER", yyline, yycolumn); }
+MOVER_DER {return token(yytext(), "FUNCION_M_DER", yyline, yycolumn); }
 ROTAR {return token(yytext(), "FUNCION_ROTAR", yyline, yycolumn); }
-POSX{return token(yytext(), "FUNCION_POSX", yyline, yycolumn); }
+POSX {return token(yytext(), "FUNCION_POSX", yyline, yycolumn); }
 POSY {return token(yytext(), "FUNCION_POSY", yyline, yycolumn); }
 SALTAR {return token(yytext(), "FUNCION_SALTAR", yyline, yycolumn); }
 SONIDO {return token(yytext(), "FUNCION_SONIDO", yyline, yycolumn); }
