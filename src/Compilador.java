@@ -323,16 +323,16 @@ public class Compilador extends javax.swing.JFrame {
         
           
            /* declarar variable ENTERA */
-           gramatica.group("DECLARAR_ENTERO","TIPO_DE_DATO_ENTERO IDENTIFICADOR OPERADOR_ASIGNACION VALORES_ENTEROS FIN_DE_SENTENCIA",true);
-           //No !
+           gramatica.group("DECLARAR_ENTERO","TIPO_DE_DATO_ENTERO IDENTIFICADOR OPERADOR_ASIGNACION VALORES_ENTEROS FIN_DE_SENTENCIA",true,identProd);
+           //No ;
            gramatica.group("DECLARAR_ENTERO","TIPO_DE_DATO_ENTERO IDENTIFICADOR OPERADOR_ASIGNACION VALORES_ENTEROS",true,
-                   2,"Error sintáctico {}: falta ! en la declaracion de variable (Linea: # )");
+                   2,"Error sintáctico {}: falta ; en la declaracion de variable (Linea: # )");
            // no identificador
            gramatica.group("DECLARAR_ENTERO","TIPO_DE_DATO_ENTERO OPERADOR_ASIGNACION VALORES_ENTEROS FIN_DE_SENTENCIA",true,
                    3,"Error sintáctico {}: falta identificador en la declaracion (Linea: # )");
            //no valor
            gramatica.group("DECLARAR_ENTERO","TIPO_DE_DATO_ENTERO IDENTIFICADOR OPERADOR_ASIGNACION FIN_DE_SENTENCIA",true,
-                   4,"Error sintáctico {}: falta VALOR en la declaracion (Linea: # )");
+                   4,"Error sintáctico {}: falta VALOR en la declaracion (Linea: # )",identProd);
            //no op asignacion
            gramatica.group("DECLARAR_ENTERO","TIPO_DE_DATO_ENTERO IDENTIFICADOR VALORES_ENTEROS FIN_DE_SENTENCIA",true,
                    5,"Error sintáctico {}: falta operador de asignacion en la declaracion (Linea: # )");
@@ -524,6 +524,11 @@ gramatica.group("VALORES", " IDENTIFICADOR | VALORES_ENTEROS");
     }
 
     private void semanticAnalysis() {
+        for(Production id: identProd){
+            System.out.println(id.lexemeRank(0,-1)); 
+            System.out.println(id.lexicalCompRank(0,-1));
+            //lexemrank imprime el lexema y lexicalcomp el comp léxi
+        }
     }
 
     private void colorAnalysis() {
